@@ -39,17 +39,20 @@
 
 (defn match-password-handler
   [req]
-  (let [password (get-in req [:headers "password"])
-        hash-password (get-in req [:headers "hashpassword"])]
+  (try
+    (let [password (get-in req [:headers "password"])
+          hash-password (get-in req [:headers "hashpassword"])]
 
-    #_(println "req object" (get-in req [:headers "hashpassword"]))
-    (cond
-      (nil? password) (response/res-bad
-                       "Password is missing in request header with key: password")
-      (nil? hash-password) (response/res-bad
-                            "HashPassword is missing in request header with key: hashPassword")
-      :else
-      (response/res-ok (check-password password hash-password)))))
+      #_(println "req object" (get-in req [:headers "hashpassword"]))
+      (cond
+        (nil? password) (response/res-bad
+                         "Password is missing in request header with key: password")
+        (nil? hash-password) (response/res-bad
+                              "HashPassword is missing in request header with key: hashPassword")
+        :else
+        (response/res-ok (check-password password hash-password))))
+    (catch Exception e (response/res-server-error (.getMessage e)))))
+
 
 ; Our main routes
 (defroutes app-routes

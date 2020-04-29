@@ -27,3 +27,8 @@
   {:status  400
    :headers {"Content-Type" "text/json"}
    :body (json/write-str {:error body})})
+
+(defn res-server-error [body]
+  {:status  500
+   :headers {"Content-Type" "text/json"}
+   :body (json/write-str {:error body})})
