@@ -1,44 +1,41 @@
 # password-validation
 
-FIXME: description
+Clojure REST Service to validate password with its hashed password of algorithm [Scrypt](https://github.com/weavejester/crypto-password).
 
 ## Installation
 
-Download from http://example.com/FIXME.
+### Using [Leiningen](https://leiningen.org/)
+First you need to install clojure using Leiningen then follow the following instruction.
+```sh
+1. git clone <this repo> <folder name>
+2. cd <folder name>
+3. lein run
+```
+*Running webserver at http:/127.0.0.1:3000/*
+
+### Using [Docker](https://www.docker.com/)
+```sh
+1. git clone <this repo> <folder name>
+2. docker build -t password-validation-service .
+3. docker run -it --rm -p 3000:3000 password-validation-service
+```
+*Running webserver at http:/127.0.0.1:3000/*
 
 ## Usage
 
-FIXME: explanation
+API: http://localhost:3000/api/v0/match-password
 
-    $ java -jar password-validation-0.1.0-standalone.jar [args]
+`Must needed` Headers: 
 
-## Options
+| Key          | Value            |
+| ------------ | ---------------- |
+| Content-Type | application/json |
+| password     | *Your password*  |
+| hashPassword | *Your hash*      |
 
-FIXME: listing of options this app accepts.
 
-## Examples
-
-...
-
-### Bugs
-
-...
-
-### Any Other Sections
-### That You Think
-### Might be Useful
 
 ## License
 
 Copyright © 2020 FIXME
 
-This program and the accompanying materials are made available under the
-terms of the Eclipse Public License 2.0 which is available at
-http://www.eclipse.org/legal/epl-2.0.
-
-This Source Code may also be made available under the following Secondary
-Licenses when the conditions for such availability set forth in the Eclipse
-Public License, v. 2.0 are satisfied: GNU General Public License as published by
-the Free Software Foundation, either version 2 of the License, or (at your
-option) any later version, with the GNU Classpath Exception which is available
-at https://www.gnu.org/software/classpath/license.html.
