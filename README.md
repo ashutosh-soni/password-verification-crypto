@@ -11,7 +11,7 @@ First you need to install clojure using Leiningen then follow the following inst
 2. cd <folder name>
 3. lein run
 ```
-*Running webserver at http:/127.0.0.1:3000/*
+`OUTPUT: `*Running webserver at http:/127.0.0.1:3000/*
 
 ### Using [Docker](https://www.docker.com/)
 ```sh
@@ -19,7 +19,7 @@ First you need to install clojure using Leiningen then follow the following inst
 2. docker build -t password-validation-service .
 3. docker run -it --rm -p 3000:3000 password-validation-service
 ```
-*Running webserver at http:/127.0.0.1:3000/*
+`OUTPUT: `*Running webserver at http:/127.0.0.1:3000/*
 
 ## Usage
 
@@ -35,6 +35,20 @@ GET http://localhost:3000/api/v0/match-password
 | password     | *Your password*  |
 | hashPassword | *Your hash*      |
 
+## Response
+
+`If matched`: *Return:* status 200 OK
+```sh
+{
+    "isMatched": true
+}
+```
+`If failed`: *Return:*  status 200 OK
+```sh
+{
+    "isMatched": false
+}
+```
 
 
 ## License
