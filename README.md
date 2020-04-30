@@ -23,7 +23,9 @@ First you need to install clojure using Leiningen then follow the following inst
 
 ## Usage
 
-API: http://localhost:3000/api/v0/match-password
+API: 
+
+GET http://localhost:3000/api/v0/match-password
 
 `Must needed` Headers: 
 
